@@ -109,7 +109,7 @@ pub mod msg_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/stride.interchainquery.v1.Msg/SubmitQueryResponse",
+                "/stayking.interchainquery.v1.Msg/SubmitQueryResponse",
             );
             self.inner.unary(request.into_request(), path, codec).await
         }
@@ -192,7 +192,7 @@ pub mod msg_server {
         fn call(&mut self, req: http::Request<B>) -> Self::Future {
             let inner = self.inner.clone();
             match req.uri().path() {
-                "/stride.interchainquery.v1.Msg/SubmitQueryResponse" => {
+                "/stayking.interchainquery.v1.Msg/SubmitQueryResponse" => {
                     #[allow(non_camel_case_types)]
                     struct SubmitQueryResponseSvc<T: Msg>(pub Arc<T>);
                     impl<
@@ -268,6 +268,6 @@ pub mod msg_server {
         }
     }
     impl<T: Msg> tonic::server::NamedService for MsgServer<T> {
-        const NAME: &'static str = "stride.interchainquery.v1.Msg";
+        const NAME: &'static str = "stayking.interchainquery.v1.Msg";
     }
 }
